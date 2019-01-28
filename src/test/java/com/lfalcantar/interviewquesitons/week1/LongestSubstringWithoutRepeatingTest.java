@@ -3,11 +3,7 @@ package com.lfalcantar.interviewquesitons.week1;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.State;
 
-
-@State(Scope.Thread)
 public class LongestSubstringWithoutRepeatingTest {
 
 
