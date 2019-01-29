@@ -6,14 +6,18 @@ public class AddTwoNumbers {
         ListNode  sumResult  = null;
         ListNode result = null;
         int l1Val, l2Val;
-        int extra = 0, sum = 0;
+        int extra = 0, sum;
         while(l1 != null || l2 != null) {
 
             l1Val = l1 != null ? l1.val : 0;
             l2Val = l2 != null ? l2.val : 0;
 
             sum = l1Val + l2Val + extra; // get total
-            extra = sum / 10; // get the tenth
+<<<<<<< HEAD
+            extra = sum / 10; // get he tenth
+=======
+            extra = sum > 9 ? 1 : 0;fd // get the tenth
+>>>>>>> 79f8c3f... Solution
             sum = sum % 10; // get only the units
 
             if(sumResult == null) {
