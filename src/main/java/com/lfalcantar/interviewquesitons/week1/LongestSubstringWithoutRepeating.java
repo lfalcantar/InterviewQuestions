@@ -56,10 +56,14 @@ public class LongestSubstringWithoutRepeating {
         return  result;
     }
 
-    // N Solution
+    /**
+     *  N Solution
+        To reduce space we can use a Hashmap for instead of the array
+        the problem is we will affect the speed
+     */
     public static int lengthOfLongestSubstringFix_N(String str) {
-        int n = str.length();
-        if (str == null || str.equals("") || n < 1) { return 0; }
+        int n;
+        if ("".equals(str) || (n = str.length()) < 1) { return 0; }
 
         int currentLength = 1;    // length of current substring
         int maxLength = 1;    // result
