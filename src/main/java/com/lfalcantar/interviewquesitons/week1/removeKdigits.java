@@ -1,5 +1,6 @@
 package com.lfalcantar.interviewquesitons.week1;
 import java.math.BigInteger;
+import java.util.Stack;
 
 public class removeKdigits {
 
@@ -28,6 +29,31 @@ public class removeKdigits {
         }
 
         return "" + min;
+    }
+
+    public String removeKdigits_N(String num, int k) {
+        int len = num.length();
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0; i < len; i++){// 1. greedy method
+            char c = num.charAt(i);
+            while(!stack.isEmpty() && k > 0 && stack.peek() > c){
+                stack.pop();
+                k--;
+            }
+            if(c != '0' || !stack.isEmpty()){// 2. if we get to this point we dont want a  leading zero
+                stack.push(c);
+            }
+        }
+        while(k > 0 && !stack.isEmpty()){// 3. if k is greater than 0
+            stack.pop();
+            k--;
+        }
+        StringBuilder sb = new StringBuilder();
+        while(!stack.isEmpty()){
+            sb.append(stack.pop());
+        }
+        sb.reverse();
+        return sb.toString().equals("") ? "0" : sb.toString();
     }
 
     /**Given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
