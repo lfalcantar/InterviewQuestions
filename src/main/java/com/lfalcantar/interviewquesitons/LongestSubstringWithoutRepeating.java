@@ -1,4 +1,4 @@
-package com.lfalcantar.interviewquesitons.week1;
+package com.lfalcantar.interviewquesitons;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -11,18 +11,17 @@ public class LongestSubstringWithoutRepeating {
 
     /**
      * This solution is not correct as it will fail with the
-     * @param s
-     * @return
+     * @param s string
      */
     public static int lengthOfLongestSubstring_Wrong(String s) {
         int result = 0;
         if (s.length() == 0) { return result; }
 
-        Set<Character> set = new HashSet<Character>();
+        Set<Character> set = new HashSet<>();
 
 
-        for (int i = 0; i < s.length(); i++){
-            Character currentChar = new Character(s.charAt(i));
+        for (int i = 0; i < s.length(); i++) {
+            Character currentChar = s.charAt(i);
            if(set.contains(currentChar)){
                set.clear();
            }else{
@@ -39,11 +38,11 @@ public class LongestSubstringWithoutRepeating {
         int result = 0;
         if (s.length() == 0) { return result; }
 
-        Set<Character> set = new HashSet<Character>();
+        Set<Character> set = new HashSet<>();
 
         for(int j = 0; j  < s.length(); j++) {
             for (int i = j; i < s.length(); i++) {
-                Character currentChar = new Character(s.charAt(i));
+                Character currentChar = s.charAt(i);
                 if (set.contains(currentChar)) {
                     set.clear();
                 } else {
@@ -69,11 +68,11 @@ public class LongestSubstringWithoutRepeating {
         int maxLength = 1;    // result
         int prevIndex;     //  previous index
 
-        /**
-         *  in the array we stored the last known position of that character.
-         *  in this case -i meaning not visited
+        /*
+           in the array we stored the last known position of that character.
+           in this case -i meaning not visited
          */
-        int visited[] = new int[256];
+        int[] visited = new int[256];
 
         Arrays.fill(visited, -1);
 

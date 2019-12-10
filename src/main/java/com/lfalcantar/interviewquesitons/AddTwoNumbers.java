@@ -1,4 +1,4 @@
-package com.lfalcantar.interviewquesitons.week1;
+package com.lfalcantar.interviewquesitons;
 
 public class AddTwoNumbers {
 

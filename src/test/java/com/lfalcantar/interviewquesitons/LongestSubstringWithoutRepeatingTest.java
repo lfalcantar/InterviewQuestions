@@ -1,4 +1,4 @@
-package com.lfalcantar.interviewquesitons.week1;
+package com.lfalcantar.interviewquesitons;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

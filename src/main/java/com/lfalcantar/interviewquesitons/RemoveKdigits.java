@@ -1,8 +1,8 @@
-package com.lfalcantar.interviewquesitons.week1;
+package com.lfalcantar.interviewquesitons;
 import java.math.BigInteger;
 import java.util.Stack;
 
-public class removeKdigits {
+public class RemoveKdigits {
 
     public String removeKdigits(String num, int k) {
         if(num == null || k >= num.length() || num.equals(""))
@@ -56,7 +56,7 @@ public class removeKdigits {
         return sb.toString().equals("") ? "0" : sb.toString();
     }
 
-    /**Given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
+    /*Given a non-negative integer num represented as a string, remove k digits from the number so that the new number is the smallest possible.
 
      Note:
      The length of num is less than 10002 and will be ≥ k.
