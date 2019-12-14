@@ -1,13 +1,16 @@
+
 package com.lfalcantar.interviewquesitons;
 
-public class AddTwoNumbers {
+class AddTwoNumbers {
 
-    public  ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode  sumResult  = null;
-        ListNode result = null;
-        int l1Val, l2Val;
-        int extra = 0, sum;
-        while(l1 != null || l2 != null) {
+    ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+		ListNode  sumResult  = null;
+		ListNode result = null;
+		int l1Val;
+		int l2Val;
+		int extra = 0;
+		int sum;
+        while (l1 != null || l2 != null) {
 
             l1Val = l1 != null ? l1.val : 0;
             l2Val = l2 != null ? l2.val : 0;
@@ -17,11 +20,10 @@ public class AddTwoNumbers {
             extra = sum > 9 ? 1 : 0; // get the tenth
             sum = sum % 10; // get only the units
 
-            if(sumResult == null) {
+            if (sumResult == null) {
                 sumResult = new ListNode(sum);
                 result = sumResult;
-            }
-            else{
+            } else{
                 sumResult.next = new ListNode(sum);
                 sumResult = sumResult.next;
             }
@@ -31,8 +33,9 @@ public class AddTwoNumbers {
         }
 
         // [5] -> [5] == [0] - [1]
-        if(extra != 0)
-            sumResult.next = new ListNode(extra);
+        if (extra != 0) {
+			sumResult.next = new ListNode(extra);
+		}
 
         return result;
     }
