@@ -1,15 +1,14 @@
-
 package com.lfalcantar.interviewquesitons;
 
 class AddTwoNumbers {
 
-    ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		ListNode  sumResult  = null;
-		ListNode result = null;
-		int l1Val;
-		int l2Val;
-		int extra = 0;
-		int sum;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode sumResult = null;
+        ListNode result = null;
+        int l1Val;
+        int l2Val;
+        int extra = 0;
+        int sum;
         while (l1 != null || l2 != null) {
 
             l1Val = l1 != null ? l1.val : 0;
@@ -23,7 +22,7 @@ class AddTwoNumbers {
             if (sumResult == null) {
                 sumResult = new ListNode(sum);
                 result = sumResult;
-            } else{
+            } else {
                 sumResult.next = new ListNode(sum);
                 sumResult = sumResult.next;
             }
@@ -34,8 +33,8 @@ class AddTwoNumbers {
 
         // [5] -> [5] == [0] - [1]
         if (extra != 0) {
-			sumResult.next = new ListNode(extra);
-		}
+            sumResult.next = new ListNode(extra);
+        }
 
         return result;
     }
@@ -43,6 +42,7 @@ class AddTwoNumbers {
     static class ListNode {
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
         }

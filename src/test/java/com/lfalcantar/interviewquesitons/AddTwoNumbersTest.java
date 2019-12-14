@@ -5,18 +5,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class AddTwoNumbersTest {
+class AddTwoNumbersTest {
 
-    public static AddTwoNumbers addTwoNumbers;
+    private static AddTwoNumbers addTwoNumbers;
 
     @BeforeEach
-    public void setUpClass(){
+    void setUpClass() {
         addTwoNumbers = new AddTwoNumbers();
     }
 
     @DisplayName(" Test String :(2 -> 4 -> 3) + (5 -> 6 -> 4)")
     @Test
-    public void firstTest() {
+    void firstTest() {
         //List one
         AddTwoNumbers.ListNode listNode1 = new AddTwoNumbers.ListNode(2);
         AddTwoNumbers.ListNode list1Reference = listNode1;
@@ -43,7 +43,7 @@ public class AddTwoNumbersTest {
 
         AddTwoNumbers.ListNode expectedResult = addTwoNumbers.addTwoNumbers(list1Reference, list2Reference);
 
-        while(expectedResult != null) {
+        while (expectedResult != null) {
             Assertions.assertEquals(expectedResult.val, resultReference.val);
             expectedResult = expectedResult.next;
             resultReference = resultReference.next;
@@ -52,7 +52,7 @@ public class AddTwoNumbersTest {
 
     @DisplayName(" Test String :(5) + (5)")
     @Test
-    public void secondTest() {
+    void secondTest() {
         //List one
         AddTwoNumbers.ListNode listNode1 = new AddTwoNumbers.ListNode(5);
 
@@ -67,7 +67,7 @@ public class AddTwoNumbersTest {
 
         AddTwoNumbers.ListNode expectedResult = addTwoNumbers.addTwoNumbers(listNode1, listNode2);
 
-        while(expectedResult != null) {
+        while (expectedResult != null) {
             Assertions.assertEquals(expectedResult.val, resultReference.val);
             expectedResult = expectedResult.next;
             resultReference = resultReference.next;
@@ -76,7 +76,7 @@ public class AddTwoNumbersTest {
 
     @DisplayName(" Test String :(2 -> 4) + (5 -> 6 -> 4)")
     @Test
-    public void thirdTest() {
+    void thirdTest() {
         //List one
         AddTwoNumbers.ListNode listNode1 = new AddTwoNumbers.ListNode(2);
         listNode1.next = new AddTwoNumbers.ListNode(4);
@@ -99,7 +99,7 @@ public class AddTwoNumbersTest {
 
         AddTwoNumbers.ListNode expectedResult = addTwoNumbers.addTwoNumbers(listNode1, list2Reference);
 
-        while(expectedResult != null) {
+        while (expectedResult != null) {
             Assertions.assertEquals(expectedResult.val, resultReference.val);
             expectedResult = expectedResult.next;
             resultReference = resultReference.next;

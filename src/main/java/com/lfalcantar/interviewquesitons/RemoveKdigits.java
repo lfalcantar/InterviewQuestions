@@ -1,30 +1,31 @@
 package com.lfalcantar.interviewquesitons;
+
 import java.math.BigInteger;
 import java.util.Stack;
 
 public class RemoveKdigits {
 
     public String removeKdigits(String num, int k) {
-        if(num == null || k >= num.length() || num.equals(""))
+        if (num == null || k >= num.length() || num.equals(""))
             return "0";
-        return recursiveF(num,k);
+        return recursiveF(num, k);
     }
 
     /**
      * This solution is more than n2
-        and it takes a long time to process the information
-        not an optional solution
+     * and it takes a long time to process the information
+     * not an optional solution
      */
     public String recursiveF(String num, int k) {
-        if(k <= 0 ){
+        if (k <= 0) {
             return num;
         }
 
-        BigInteger min  = BigInteger.valueOf(Long.MAX_VALUE);
+        BigInteger min = BigInteger.valueOf(Long.MAX_VALUE);
         BigInteger returnValue;
-        for(int i = 0; i < num.length();i++) {
+        for (int i = 0; i < num.length(); i++) {
             String resultSubstring = num.substring(0, i) + num.substring(i + 1);
-            returnValue  = new BigInteger(recursiveF(resultSubstring, k - 1));
+            returnValue = new BigInteger(recursiveF(resultSubstring, k - 1));
             min = min.min(returnValue);
         }
 
@@ -34,22 +35,25 @@ public class RemoveKdigits {
     public String removeKdigits_N(String num, int k) {
         int len = num.length();
         Stack<Character> stack = new Stack<>();
-        for(int i = 0; i < len; i++){// 1. greedy method
+        // 1. greedy method
+        for (int i = 0; i < len; i++) {
             char c = num.charAt(i);
-            while(!stack.isEmpty() && k > 0 && stack.peek() > c){
+            while (!stack.isEmpty() && k > 0 && stack.peek() > c) {
                 stack.pop();
                 k--;
             }
-            if(c != '0' || !stack.isEmpty()){// 2. if we get to this point we dont want a  leading zero
+            // 2. if we get to this point we dont want a  leading zero
+            if (c != '0' || !stack.isEmpty()) {
                 stack.push(c);
             }
         }
-        while(k > 0 && !stack.isEmpty()){// 3. if k is greater than 0
+        // 3. if k is greater than 0
+        while (k > 0 && !stack.isEmpty()) {
             stack.pop();
             k--;
         }
         StringBuilder sb = new StringBuilder();
-        while(!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             sb.append(stack.pop());
         }
         sb.reverse();

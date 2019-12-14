@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class LongestSubstringWithoutRepeatingTest {
+class LongestSubstringWithoutRepeatingTest {
 
 
     @DisplayName(" Test String :abcabcbb")
     @Test
-    public void abcabcbbTest() {
+    void abcabcbbTest() {
         String str = "abcabcbb";
         int expectedResult = 3;
 
@@ -20,7 +20,7 @@ public class LongestSubstringWithoutRepeatingTest {
 
     @DisplayName(" Test String :bbbbb")
     @Test
-    public void bbbbbTest() {
+    void bbbbbTest() {
         String str = "bbbbb";
         int expectedResult = 1;
 
@@ -31,7 +31,7 @@ public class LongestSubstringWithoutRepeatingTest {
 
     @DisplayName(" Test String :pwwkew")
     @Test
-    public void pwwkewTest() {
+    void pwwkewTest() {
         String str = "pwwkew";
         int expectedResult = 3;
 
@@ -42,8 +42,7 @@ public class LongestSubstringWithoutRepeatingTest {
 
     @DisplayName(" Test String :\"\"")
     @Test
-
-    public void emptyStringTest() {
+    void emptyStringTest() {
         String str = "";
         int expectedResult = 0;
 
@@ -54,8 +53,7 @@ public class LongestSubstringWithoutRepeatingTest {
 
     @DisplayName(" Test String :abcdbefg ")
     @Test
-
-    public void abcdbefgTest() {
+    void abcdbefgTest() {
         String str = "abcdbefg";
         int expectedResult = 6;
 
