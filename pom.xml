@@ -8,6 +8,7 @@
     <artifactId>com.lfalcantar.interview-questions</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!--TODO CLEAN UP POM USING PROPERTIES-->
     <properties>
         <junit-platform.version>5.5.2</junit-platform.version>
         <surefire-provider.version>1.2.0</surefire-provider.version>
@@ -39,6 +40,7 @@
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.0.0</version>
                 <configuration>
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
                 </configuration>
@@ -67,6 +69,35 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.4.10</version>
+                <executions>
+                    <execution>
+                        <id>pit-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-junit5-plugin</artifactId>
+                        <version>0.10</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <targetClasses>
+                        <param>com.lfalcantar.interviewquesitons.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>com.lfalcantar.interviewquesitons.*</param>
+                    </targetTests>
+                </configuration>
             </plugin>
 			<plugin>
 				<artifactId>maven-checkstyle-plugin</artifactId>
