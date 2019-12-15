@@ -1,12 +1,9 @@
 language: java
 script:
 - mvn install -DskipTests=false -Dmaven.javadoc.skip=true -B -V
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.login=$SONAR_TOKEN
+- mvn clean verify sonar:sonar
 addons:
   sonarcloud:
     organization: lfalcantar
     token:
-      secure: "eQ9S61p1vse89fkMTRAV+OxmCGEPlroMr/7lGjWfRo6vhnFCHzxroQ4Kokx0+wR/hA5lRbvBtCSnSb+zNsdhAeqY4lJKwm2blva4qdXIcdShUTzs2TFms9sosj6CQvmKs9SYZ+tHAFT838JtcV9gs7bAjmkSkNKmzXJ5qjGjgSZMATaSz+qfmh0
-              vVaEIRolNetSq9E4KGiJ5N3FYQJgxRKhj2P+C045Z6bmwKKi+5zjEmTZCY05BLpJRFa9fCouPEdMi0CKMY6USwVlz7QrXhSKxb5mW5mjhLDbR0j0+xoeL0qx/xCi07Au+jnP/P0i6oLV94k6E/WS3DGOhE6+7XdwdcvE2pmPt5r0d+zVCxMGD0ahe8OpVtoDt7
-              TMxr6e0gm85PvNsSC/HsB+INwBvh19Q0VTz5SWA7hw00Oe7NTZr5Z4yA3N/yRF4YcsxLOETKPf1/OpoN11GPz62YoCjqP1QRfYDFOz37nFUayOibCRSavjelIMJoRUZFlwnhh3rrLbcrW5xAfIGi5ROi0FhyXNdhJHRtRQSJHq6SSlpVOLHfChgS4I5oNlj8FP
-              L0KGfQq1qE212IJkULUDHs+qZ2tjTGlVMxkrt3S/nRZ2p4yBP119Jdyaafntbaqw+N9zNNcGsgYrUN/bB+kliBRELUPex9l5DG9EBnepgfSvY8q0="
+      secure: $SONAR_TOKEN
