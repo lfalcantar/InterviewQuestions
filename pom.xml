@@ -16,6 +16,12 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <sonar.projectKey>lfalcantar_InterviewQuestions</sonar.projectKey>
+        <sonar.organization>lfalcantar</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>54f9905697f421eb6cc74c60dd8780f9cb2e2968</sonar.login>
+        <sonar.java.libraries>target</sonar.java.libraries>
+        <!--TODO move this to sonar.properties file-->
     </properties>
 
     <dependencies>
@@ -37,8 +43,19 @@
         <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.6.0.1398</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.4</version>
+            </plugin>
+            <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.0.0</version>
                 <configuration>
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
                 </configuration>
@@ -88,6 +105,6 @@
 					</execution>
 				</executions>
 			</plugin>
-		</plugins>
+        </plugins>
     </build>
 </project>
