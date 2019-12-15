@@ -1,9 +1,9 @@
 language: java
 script:
 - mvn install -DskipTests=false -Dmaven.javadoc.skip=true -B -V
-- mvn clean verify sonar:sonar
+- mvn clean verify sonar:sonar -Dsonar.login=$SONAR_TOKE
 addons:
   sonarcloud:
-    organization: lfalcantar
+    organization: $SONAR_ORGANIZATION
     token:
       secure: $SONAR_TOKEN
