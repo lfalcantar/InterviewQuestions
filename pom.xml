@@ -10,7 +10,7 @@
 
     <!--TODO CLEAN UP POM USING PROPERTIES-->
     <properties>
-        <junit-platform.version>5.5.2</junit-platform.version>
+        <junit-platform.version>5.6.2</junit-platform.version>
         <surefire-provider.version>1.2.0</surefire-provider.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
